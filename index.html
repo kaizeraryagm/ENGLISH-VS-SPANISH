@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load Charts and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Draw the pie chart.
+      google.charts.setOnLoadCallback(drawSarahChart);
+
+      // Draw the pie charT.
+      google.charts.setOnLoadCallback(drawAnthonyChart);
+
+      // Callback that draws the pie chart.
+      function drawSarahChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Country');
+        data.addColumn('number', 'Population');
+        data.addRows([
+          ['CHINA', 10],
+          ['INDIA', 125],
+          ['UNITED STATES', 316],
+          ['INDONESIA', 0.02],
+		  ['BRAZIL', 10.5],
+		  ['PAKISTAN', 94],
+		  ['NIGERIA', 79],
+		  ['BANGLADESH', 90.1],
+		  ['RUSSIA', 7.5],
+          ['JAPAN', 1]
+        ]);
+
+        var options = {title:'English speakers(in top 10 populated countries) population in millions',
+                       width:650,
+                       height:500};
+
+        // Instantiate and draw the chart
+        var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
+        chart.draw(data, options);
+      }
+
+      // Callback that draws the pie chart
+      function drawAnthonyChart() {
+
+        // Create the data table
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Country');
+        data.addColumn('number', 'Population');
+        data.addRows([
+          ['CHINA', 0],
+          ['INDIA', 0],
+          ['UNITED STATES', 37.4],
+          ['INDONESIA', 0],
+		  ['BRAZIL', 6.6],
+		  ['PAKISTAN', 0],
+		  ['NIGERIA', 0],
+		  ['BANGLADESH', 0],
+		  ['RUSSIA', 0],
+          ['JAPAN', 0]
+        ]);
+        
+
+        // Set options for pie chart.
+        var options = {title:'Spanish speakers(in top 10 populated countries) population in millions',
+                       width:650,
+                       height:500};
+
+        // Instantiate and draw the chart
+        var chart = new google.visualization.PieChart(document.getElementById('Anthony_chart_div'));
+        chart.draw(data, options);
+      }
+	 
+    </script>
+  </head>
+  <body>
+   <h2><center>ENGLISH Vs SPANISH IN TOP 10 POPULATED COUNTRIES</center></h2>
+    <!--Table and divs that hold the pie charts-->
+    <table class="columns">
+      <tr>
+        <td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
+        <td><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
+      </tr>
+    </table>
+  </body>
+</html>
